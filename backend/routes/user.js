@@ -50,9 +50,9 @@ router.post("/signup", async (req, res, next) => {
     })
 
     // create a token:
-    const token = await jwt.sign({
+    const token = jwt.sign({
         userId,
-    }, JWT_SECRET)
+    }, JWT_SECRET);
 
     res.status(200).json({
         msg: "Signup Successful",
