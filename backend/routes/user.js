@@ -42,7 +42,7 @@ router.post("/signup", async (req, res, next) => {
 
     // Now that the user is created, create an account for this user;
 
-    const userId = usre._id;
+    const userId = user._id;
 
     await Account.create({
         userId,
@@ -76,8 +76,8 @@ router.post('/signin', async (req, res, next)=> {
     }
 
     const user = await User.findOne({
-        username,
-        password
+        username: req.body.username,
+        password: req.body.password
     })
 
     if (user) {

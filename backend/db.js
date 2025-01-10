@@ -1,10 +1,14 @@
 const mongoose = require("mongoose")
+const dotenv = require("dotenv")
 
+dotenv.config({
+    path: "./.env"
+})
 
 const DB_NAME = "paytm"
 const connectDB = async () => {
     try {
-        const connectionInstance  = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+        const connectionInstance  = await mongoose.connect(`${process.env.MONGODB_URI}`)
         console.log("MongoDB Connnected :: DB HOST :: ", connectionInstance.connection.host);
     } catch (error) {
         console.error("MongoDB Error :: ERROR :: ", error);
@@ -61,9 +65,8 @@ const accountSchema = new Schema({
 const Account = mongoose.model("Account", accountSchema);
 const User = mongoose.model("User", userSchema);
 
+connectDB();
 module.exports = {
     User,
     Account
-}; 
-
-connectDB()
+};
