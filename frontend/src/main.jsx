@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom"
+import Dashboard from './pages/Dashboard.jsx'
+import Signup from './pages/Signup.jsx'
+import Signin from './pages/Signin.jsx'
+import SendMoney from './pages/SendMoney.jsx'
 const router = createBrowserRouter([
     {
         path: "/",
@@ -14,15 +18,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "dashboard",
-                element: <h1>Dashboard</h1>
+                element: <Dashboard />
             },
             {
-                path: "transfer",
-                element: <h1>Transfer</h1>
+                path: "send",
+                element: <SendMoney/>
             },
             {
-                path: "profile" ,
-                element: <h1>Profile</h1>
+                path: "signup" ,
+                element: <Signup />
+            },
+            {
+                path: "signin",
+                element: <Signin />
             }
         ]
     }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import {Button} from './Button';
+import Button from './Button';
+import axios from 'axios';
 function Users() {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
